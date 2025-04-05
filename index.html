@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixIt - Tech Troubleshooting Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <a href="index.html" class="logo">FixIt</a>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <h5 class="nav-title">MAIN MENU</h5>
+          <ul class="nav-items">
+            <li class="nav-item active">
+              <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="my-troubleshooting.html">
+                <i class="bi bi-tools"></i>
+                <span>My Troubleshooting</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="history.html">
+                <i class="bi bi-clock-history"></i>
+                <span>History</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="saved-guides.html">
+                <i class="bi bi-bookmark"></i>
+                <span>Saved Guides</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="nav-section">
+          <h5 class="nav-title">CATEGORIES</h5>
+          <ul class="nav-items" id="category-nav">
+            <!-- Categories will be loaded here via JavaScript -->
+            <li class="nav-item skeleton">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-text"></div>
+            </li>
+            <li class="nav-item skeleton">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-text"></div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="nav-section">
+          <h5 class="nav-title">SUPPORT</h5>
+          <ul class="nav-items">
+            <li class="nav-item">
+              <a href="help-center.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Help Center</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="settings.html">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-inner">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-content">
+            <h1>Find Expert Solutions to Your Technical Problems</h1>
+            <p>Access thousands of troubleshooting guides created by experts and fix your devices with easy-to-follow steps</p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary">Explore Guides</button>
+              <button class="btn btn-outline">Upload a Photo</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- How it Works Section -->
+        <section class="how-it-works-section">
+          <div class="section-header">
+            <h2>How FixIt Works</h2>
+            <p>Our platform makes troubleshooting simple with these easy steps</p>
+          </div>
+          
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-icon">
+                <i class="bi bi-search"></i>
+              </div>
+              <h3>Identify the Problem</h3>
+              <p>Upload a photo or search for your device issue</p>
+            </div>
+            
+            <div class="step-item">
+              <div class="step-icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <h3>Find Solutions</h3>
+              <p>Browse expert-created troubleshooting guides</p>
+            </div>
+            
+            <div class="step-item">
+              <div class="step-icon">
+                <i class="bi bi-book"></i>
+              </div>
+              <h3>Follow Steps</h3>
+              <p>Work through clear step-by-step instructions</p>
+            </div>
+            
+            <div class="step-item">
+              <div class="step-icon">
+                <i class="bi bi-check-circle"></i>
+              </div>
+              <h3>Problem Solved</h3>
+              <p>Fix your device and get back to normal</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+          <div class="section-header-with-action">
+            <h2>Popular Categories</h2>
+            <a href="categories.html" class="view-all">
+              View all <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          
+          <div class="tabs-container">
+            <ul class="tabs-nav">
+              <li class="active"><a href="#all-tab">All Categories</a></li>
+              <li><a href="#electronics-tab">Electronics</a></li>
+              <li><a href="#computers-tab">Computers</a></li>
+              <li><a href="#appliances-tab">Appliances</a></li>
+            </ul>
+            
+            <div class="tab-content">
+              <div id="all-tab" class="tab-pane active">
+                <div class="categories-grid" id="all-categories">
+                  <!-- Categories will be loaded here via JavaScript -->
+                  <div class="category-card skeleton"></div>
+                  <div class="category-card skeleton"></div>
+                  <div class="category-card skeleton"></div>
+                  <div class="category-card skeleton"></div>
+                  <div class="category-card skeleton"></div>
+                  <div class="category-card skeleton"></div>
+                </div>
+              </div>
+              
+              <div id="electronics-tab" class="tab-pane">
+                <div class="categories-grid" id="electronics-categories">
+                  <!-- Electronics categories will be loaded here -->
+                </div>
+              </div>
+              
+              <div id="computers-tab" class="tab-pane">
+                <div class="categories-grid" id="computers-categories">
+                  <!-- Computers categories will be loaded here -->
+                </div>
+              </div>
+              
+              <div id="appliances-tab" class="tab-pane">
+                <div class="categories-grid" id="appliances-categories">
+                  <!-- Appliances categories will be loaded here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Detection Section -->
+        <section class="ai-detection-section">
+          <div class="ai-info">
+            <h2>AI-Powered Diagnostics</h2>
+            <p>Not sure what's wrong with your device? Our advanced AI can identify components and suggest targeted troubleshooting guides.</p>
+            
+            <div class="features-list">
+              <div class="feature-item">
+                <i class="bi bi-check-circle"></i>
+                <div>
+                  <h4>Instant Recognition</h4>
+                  <p>Our AI identifies devices and components in seconds</p>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <i class="bi bi-check-circle"></i>
+                <div>
+                  <h4>Precise Diagnostics</h4>
+                  <p>Get specific troubleshooting guides for your exact model</p>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <i class="bi bi-check-circle"></i>
+                <div>
+                  <h4>Easy to Use</h4>
+                  <p>Just upload a clear photo of your device or component</p>
+                </div>
+              </div>
+            </div>
+            
+            <button class="btn btn-primary mt-4">Try It Now</button>
+          </div>
+          
+          <div class="ai-upload-box">
+            <div class="card">
+              <div class="card-body">
+                <h3>Upload Your Device Image</h3>
+                <div class="upload-area" id="upload-area">
+                  <i class="bi bi-cloud-arrow-up"></i>
+                  <p>Drag & drop your image here or <span>browse files</span></p>
+                  <input type="file" id="file-upload" accept="image/*" hidden>
+                </div>
+                <p class="upload-tip">For best results, ensure good lighting and a clear view of the device.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+          <div class="cta-icon">
+            <i class="bi bi-wrench"></i>
+          </div>
+          <h2>Ready to solve your technical issues?</h2>
+          <p>Join thousands of users who have successfully fixed their devices using our platform.</p>
+          <button class="btn btn-primary">Get Started Now</button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

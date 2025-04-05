@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category | FixIt - Tech Troubleshooting Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    /* Additional styles for category page */
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .category-icon-large {
+      width: 5rem;
+      height: 5rem;
+      background-color: var(--primary-very-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      font-size: 2rem;
+    }
+    
+    .category-description {
+      color: var(--muted-foreground);
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .guides-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .filter-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    
+    .difficulty-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .difficulty-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+    
+    .difficulty-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+    }
+    
+    .difficulty-dot.beginner {
+      background-color: #10b981;
+    }
+    
+    .difficulty-dot.intermediate {
+      background-color: #f59e0b;
+    }
+    
+    .difficulty-dot.advanced {
+      background-color: #ef4444;
+    }
+    
+    .guide-card {
+      background-color: white;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+    }
+    
+    .guide-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .guide-card.beginner {
+      border-left-color: #10b981;
+    }
+    
+    .guide-card.intermediate {
+      border-left-color: #f59e0b;
+    }
+    
+    .guide-card.advanced {
+      border-left-color: #ef4444;
+    }
+    
+    .guide-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    
+    .guide-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+    
+    .guide-meta {
+      display: flex;
+      gap: 1.5rem;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .guide-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .guide-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .guide-rating-stars {
+      color: #f59e0b;
+    }
+    
+    .guide-rating-value {
+      font-weight: 600;
+    }
+    
+    .no-guides {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--muted);
+      border-radius: var(--radius);
+    }
+    
+    .no-guides i {
+      font-size: 3rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    
+    .no-guides h3 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .no-guides p {
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <a href="index.html" class="logo">FixIt</a>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <h5 class="nav-title">MAIN MENU</h5>
+          <ul class="nav-items">
+            <li class="nav-item">
+              <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="my-troubleshooting.html">
+                <i class="bi bi-tools"></i>
+                <span>My Troubleshooting</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="history.html">
+                <i class="bi bi-clock-history"></i>
+                <span>History</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="saved-guides.html">
+                <i class="bi bi-bookmark"></i>
+                <span>Saved Guides</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="nav-section">
+          <h5 class="nav-title">CATEGORIES</h5>
+          <ul class="nav-items" id="category-nav">
+            <!-- Categories will be loaded here via JavaScript -->
+            <li class="nav-item skeleton">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-text"></div>
+            </li>
+            <li class="nav-item skeleton">
+              <div class="skeleton-icon"></div>
+              <div class="skeleton-text"></div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="nav-section">
+          <h5 class="nav-title">SUPPORT</h5>
+          <ul class="nav-items">
+            <li class="nav-item">
+              <a href="help-center.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Help Center</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="settings.html">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-inner">
+        <!-- Loading State -->
+        <div id="loading-state" class="category-loading-state">
+          <div class="category-header">
+            <div class="category-icon-large skeleton"></div>
+            <div>
+              <div class="skeleton" style="width: 200px; height: 2rem; margin-bottom: 0.5rem;"></div>
+              <div class="skeleton" style="width: 300px; height: 1rem;"></div>
+            </div>
+          </div>
+          
+          <div class="skeleton" style="width: 100%; height: 1.5rem; margin-bottom: 1.5rem;"></div>
+          
+          <div class="guides-header">
+            <div class="skeleton" style="width: 150px; height: 1.5rem;"></div>
+            <div class="skeleton" style="width: 100px; height: 2rem;"></div>
+          </div>
+          
+          <div>
+            <div class="guide-card skeleton" style="height: 150px; margin-bottom: 1rem;"></div>
+            <div class="guide-card skeleton" style="height: 150px; margin-bottom: 1rem;"></div>
+            <div class="guide-card skeleton" style="height: 150px;"></div>
+          </div>
+        </div>
+        
+        <!-- Content (hidden initially, shown when loaded) -->
+        <div id="category-content" class="category-content" style="display: none;">
+          <div class="category-header">
+            <div class="category-icon-large" id="category-icon">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <div>
+              <h1 id="category-name">Category Name</h1>
+              <p id="category-subtitle">Guides for troubleshooting</p>
+            </div>
+          </div>
+          
+          <p class="category-description" id="category-description">
+            Detailed category description will appear here.
+          </p>
+          
+          <div class="guides-header">
+            <h2>Troubleshooting Guides</h2>
+            <button class="filter-button">
+              <i class="bi bi-funnel"></i>
+              <span>Filter</span>
+            </button>
+          </div>
+          
+          <div class="difficulty-legend">
+            <div class="difficulty-item">
+              <span class="difficulty-dot beginner"></span>
+              <span>Beginner</span>
+            </div>
+            <div class="difficulty-item">
+              <span class="difficulty-dot intermediate"></span>
+              <span>Intermediate</span>
+            </div>
+            <div class="difficulty-item">
+              <span class="difficulty-dot advanced"></span>
+              <span>Advanced</span>
+            </div>
+          </div>
+          
+          <!-- Guides container -->
+          <div id="guides-container">
+            <!-- Sample guide cards -->
+            <div class="guide-card beginner">
+              <div class="guide-header">
+                <h3 class="guide-title">How to Fix a Slow Laptop</h3>
+                <div class="guide-rating">
+                  <div class="guide-rating-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="guide-rating-value">4.7</span>
+                </div>
+              </div>
+              
+              <div class="guide-meta">
+                <div class="guide-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>30 minutes</span>
+                </div>
+                <div class="guide-meta-item">
+                  <i class="bi bi-person"></i>
+                  <span>TechExpert</span>
+                </div>
+              </div>
+              
+              <p>Learn how to speed up your slow laptop with these simple steps</p>
+            </div>
+            
+            <div class="guide-card intermediate">
+              <div class="guide-header">
+                <h3 class="guide-title">Troubleshooting WiFi Connection Issues</h3>
+                <div class="guide-rating">
+                  <div class="guide-rating-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <span class="guide-rating-value">4.2</span>
+                </div>
+              </div>
+              
+              <div class="guide-meta">
+                <div class="guide-meta-item">
+                  <i class="bi bi-clock"></i>
+                  <span>45 minutes</span>
+                </div>
+                <div class="guide-meta-item">
+                  <i class="bi bi-person"></i>
+                  <span>NetworkPro</span>
+                </div>
+              </div>
+              
+              <p>Solve common WiFi problems with this step-by-step guide</p>
+            </div>
+          </div>
+          
+          <!-- No guides state (hidden by default) -->
+          <div id="no-guides" class="no-guides" style="display: none;">
+            <i class="bi bi-journal-x"></i>
+            <h3>No guides available</h3>
+            <p>There are no troubleshooting guides available for this category yet.</p>
+            <button class="btn btn-primary">Back to Home</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Additional JavaScript for the category page
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingState = document.getElementById('loading-state');
+      const categoryContent = document.getElementById('category-content');
+      const categoryName = document.getElementById('category-name');
+      const categorySubtitle = document.getElementById('category-subtitle');
+      const categoryDescription = document.getElementById('category-description');
+      const categoryIcon = document.getElementById('category-icon');
+      const guidesContainer = document.getElementById('guides-container');
+      const noGuides = document.getElementById('no-guides');
+      
+      // Get category slug from URL
+      const slug = getURLParam('slug');
+      if (!slug) {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Simulate loading data
+      setTimeout(() => {
+        // Find the category from our data
+        const category = categories.find(c => c.slug === slug);
+        
+        if (!category) {
+          window.location.href = 'index.html';
+          return;
+        }
+        
+        // Update category information
+        categoryName.textContent = category.name;
+        categorySubtitle.textContent = `Guides for ${category.name.toLowerCase()} troubleshooting`;
+        categoryDescription.textContent = category.description || `Find expert troubleshooting guides for ${category.name.toLowerCase()}.`;
+        categoryIcon.innerHTML = `<i class="${category.icon}"></i>`;
+        
+        // Fetch guides
+        fetchGuidesByCategory(category.id).then(guides => {
+          // Clear the container
+          guidesContainer.innerHTML = '';
+          
+          if (guides.length === 0) {
+            guidesContainer.style.display = 'none';
+            noGuides.style.display = 'block';
+          } else {
+            // Add guides to the container
+            guides.forEach(guide => {
+              const guideCard = createGuideCard(guide);
+              guidesContainer.appendChild(guideCard);
+            });
+            
+            guidesContainer.style.display = 'block';
+            noGuides.style.display = 'none';
+          }
+          
+          // Show content and hide loading state
+          loadingState.style.display = 'none';
+          categoryContent.style.display = 'block';
+        });
+      }, 1000); // Simulate loading delay
+    });
+    
+    // Create a guide card
+    function createGuideCard(guide) {
+      const card = document.createElement('div');
+      card.className = `guide-card ${guide.difficulty}`;
+      
+      // Generate star rating HTML
+      const ratingStars = generateStarRating(guide.rating);
+      
+      card.innerHTML = `
+        <div class="guide-header">
+          <h3 class="guide-title">${guide.title}</h3>
+          <div class="guide-rating">
+            <div class="guide-rating-stars">
+              ${ratingStars}
+            </div>
+            <span class="guide-rating-value">${guide.rating.toFixed(1)}</span>
+          </div>
+        </div>
+        
+        <div class="guide-meta">
+          ${guide.estimatedTime ? `
+            <div class="guide-meta-item">
+              <i class="bi bi-clock"></i>
+              <span>${guide.estimatedTime}</span>
+            </div>
+          ` : ''}
+          ${guide.author ? `
+            <div class="guide-meta-item">
+              <i class="bi bi-person"></i>
+              <span>${guide.author}</span>
+            </div>
+          ` : ''}
+        </div>
+        
+        <p>${guide.description}</p>
+      `;
+      
+      // Add click event to navigate to guide page
+      card.addEventListener('click', () => {
+        window.location.href = `guide.html?slug=${guide.slug}`;
+      });
+      
+      return card;
+    }
+    
+    // Generate star rating HTML
+    function generateStarRating(rating) {
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 >= 0.5;
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+      
+      let starsHtml = '';
+      
+      // Full stars
+      for (let i = 0; i < fullStars; i++) {
+        starsHtml += '<i class="bi bi-star-fill"></i>';
+      }
+      
+      // Half star
+      if (hasHalfStar) {
+        starsHtml += '<i class="bi bi-star-half"></i>';
+      }
+      
+      // Empty stars
+      for (let i = 0; i < emptyStars; i++) {
+        starsHtml += '<i class="bi bi-star"></i>';
+      }
+      
+      return starsHtml;
+    }
+  </script>
+</body>
+</html>
