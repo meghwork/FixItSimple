@@ -1,2 +1,2 @@
-# FixItReact
+# FixItSimple
 collage project
