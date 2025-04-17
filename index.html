@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- Sidebar -->
+
     <aside class="sidebar">
       <div class="logo-container">
         <a href="index.html" class="logo">FixIt</a>
@@ -50,7 +50,7 @@
         <div class="nav-section">
           <h5 class="nav-title">CATEGORIES</h5>
           <ul class="nav-items" id="category-nav">
-            <!-- Categories will be loaded here via JavaScript -->
+
             <li class="nav-item skeleton">
               <div class="skeleton-icon"></div>
               <div class="skeleton-text"></div>
@@ -82,22 +82,19 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
       <div class="content-inner">
-        <!-- Hero Section -->
+        
         <section class="hero-section">
           <div class="hero-content">
             <h1>Find Expert Solutions to Your Technical Problems</h1>
             <p>Access thousands of troubleshooting guides created by experts and fix your devices with easy-to-follow steps</p>
             <div class="hero-buttons">
               <button class="btn btn-primary">Explore Guides</button>
-              <button class="btn btn-outline">Upload a Photo</button>
             </div>
           </div>
         </section>
 
-        <!-- How it Works Section -->
         <section class="how-it-works-section">
           <div class="section-header">
             <h2>How FixIt Works</h2>
@@ -110,7 +107,7 @@
                 <i class="bi bi-search"></i>
               </div>
               <h3>Identify the Problem</h3>
-              <p>Upload a photo or search for your device issue</p>
+              <p>Search for your device issue</p>
             </div>
             
             <div class="step-item">
@@ -126,7 +123,7 @@
                 <i class="bi bi-book"></i>
               </div>
               <h3>Follow Steps</h3>
-              <p>Work through clear step-by-step instructions</p>
+              <p>Work through clear /nstep-by-step instructions</p>
             </div>
             
             <div class="step-item">
@@ -139,11 +136,10 @@
           </div>
         </section>
 
-        <!-- Categories Section -->
         <section class="categories-section">
           <div class="section-header-with-action">
             <h2>Popular Categories</h2>
-            <a href="categories.html" class="view-all">
+            <a href="category.html" class="view-all">
               View all <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -159,7 +155,7 @@
             <div class="tab-content">
               <div id="all-tab" class="tab-pane active">
                 <div class="categories-grid" id="all-categories">
-                  <!-- Categories will be loaded here via JavaScript -->
+
                   <div class="category-card skeleton"></div>
                   <div class="category-card skeleton"></div>
                   <div class="category-card skeleton"></div>
@@ -171,76 +167,25 @@
               
               <div id="electronics-tab" class="tab-pane">
                 <div class="categories-grid" id="electronics-categories">
-                  <!-- Electronics categories will be loaded here -->
+
                 </div>
               </div>
               
               <div id="computers-tab" class="tab-pane">
                 <div class="categories-grid" id="computers-categories">
-                  <!-- Computers categories will be loaded here -->
+
                 </div>
               </div>
               
               <div id="appliances-tab" class="tab-pane">
                 <div class="categories-grid" id="appliances-categories">
-                  <!-- Appliances categories will be loaded here -->
+
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- AI Detection Section -->
-        <section class="ai-detection-section">
-          <div class="ai-info">
-            <h2>AI-Powered Diagnostics</h2>
-            <p>Not sure what's wrong with your device? Our advanced AI can identify components and suggest targeted troubleshooting guides.</p>
-            
-            <div class="features-list">
-              <div class="feature-item">
-                <i class="bi bi-check-circle"></i>
-                <div>
-                  <h4>Instant Recognition</h4>
-                  <p>Our AI identifies devices and components in seconds</p>
-                </div>
-              </div>
-              
-              <div class="feature-item">
-                <i class="bi bi-check-circle"></i>
-                <div>
-                  <h4>Precise Diagnostics</h4>
-                  <p>Get specific troubleshooting guides for your exact model</p>
-                </div>
-              </div>
-              
-              <div class="feature-item">
-                <i class="bi bi-check-circle"></i>
-                <div>
-                  <h4>Easy to Use</h4>
-                  <p>Just upload a clear photo of your device or component</p>
-                </div>
-              </div>
-            </div>
-            
-            <button class="btn btn-primary mt-4">Try It Now</button>
-          </div>
-          
-          <div class="ai-upload-box">
-            <div class="card">
-              <div class="card-body">
-                <h3>Upload Your Device Image</h3>
-                <div class="upload-area" id="upload-area">
-                  <i class="bi bi-cloud-arrow-up"></i>
-                  <p>Drag & drop your image here or <span>browse files</span></p>
-                  <input type="file" id="file-upload" accept="image/*" hidden>
-                </div>
-                <p class="upload-tip">For best results, ensure good lighting and a clear view of the device.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA Section -->
         <section class="cta-section">
           <div class="cta-icon">
             <i class="bi bi-wrench"></i>
